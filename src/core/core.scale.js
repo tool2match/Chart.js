@@ -132,6 +132,7 @@ function titleAlign(align, position, reverse) {
 }
 
 function titleArgs(scale, offset, position, align) {
+  offset = 0
   const {top, left, bottom, right, chart} = scale;
   const {chartArea, scales} = chart;
   let rotation = 0;
@@ -163,7 +164,7 @@ function titleArgs(scale, offset, position, align) {
       titleX = offsetFromEdge(scale, position, offset);
     }
     titleY = _alignStartEnd(align, bottom, top);
-    rotation = position === 'left' ? -HALF_PI : HALF_PI;
+    // rotation = position === 'left' ? -HALF_PI : HALF_PI;
   }
   return {titleX, titleY, maxWidth, rotation};
 }
@@ -1601,7 +1602,7 @@ export default class Scale extends Element {
       color: title.color,
       maxWidth,
       rotation,
-      textAlign: titleAlign(align, position, reverse),
+      // textAlign: titleAlign(align, position, reverse),
       textBaseline: 'middle',
       translation: [titleX, titleY],
     });
